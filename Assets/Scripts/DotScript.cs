@@ -4,9 +4,6 @@ namespace Assets.Scripts
 {
     public class DotScript : MonoBehaviour
     {
-        public AnimationCurve FadeCurve;
-        public Vector2 Index;
-
         public virtual void Start()
         {
         }

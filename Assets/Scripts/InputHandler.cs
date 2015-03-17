@@ -4,10 +4,16 @@ namespace Assets.Scripts
 {
     public class InputHandler : MonoBehaviour
     {
+        public int Counter = 1;
         public void Update()
         {
+            if (Input.touchCount == 0)
+            {
+                Counter = 1;
+            }
             if (Input.touchCount > 0)
             {
+                
                 var worldRay = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
 
                 RaycastHit rcHit;
@@ -16,8 +22,9 @@ namespace Assets.Scripts
                 {
                     if (rcHit.collider.gameObject)
                     {
-                        var dotScript = rcHit.collider.gameObject.GetComponent<DotScript>();
-                        dotScript.Colorize();
+                        var squareScript = rcHit.collider.gameObject.GetComponent<SquareScript>();
+                        squareScript.Colorize();
+
                     }
                 }
             }
@@ -32,8 +39,8 @@ namespace Assets.Scripts
                 {
                     if (rcHit.collider.gameObject)
                     {
-                        var dotScript = rcHit.collider.gameObject.GetComponent<DotScript>();
-                        dotScript.Colorize();
+                        var squareScript = rcHit.collider.gameObject.GetComponent<SquareScript>();
+                        squareScript.Colorize();
                     }
                 }
             }

@@ -4,30 +4,31 @@ using Random = System.Random;
 
 namespace Assets.Scripts
 {
-    public class SquareScript : DotScript
+    public class SquareScript : MonoBehaviour
     {
         private static readonly Random RandomGenerator = new Random(DateTime.Now.Millisecond);
         private Color _baseColor;
-        private Color _secondColor;
         public bool ChangeColorToEmphasize;
         public Color EmphasizeColor = Color.red;
-        public int FadeTime = 4;
+        public AnimationCurve FadeCurve;
+        public int FadeInSpeed = 4;
+        public int FadeOutSpeed = 4;
+        public Vector2 Index;
+        public bool InPattern = false;
         public bool ResetColorToBase;
+        public int PatternIndex { get; set; }
 
         public void Awake()
         {
-            _secondColor = EmphasizeColor;
         }
 
-        public override void Start()
+        public void Start()
         {
             SetupColor();
         }
 
-        public override void Update()
+        public void Update()
         {
-            base.Update();
-
             if (ChangeColorToEmphasize)
             {
                 ColorAnimator();
@@ -40,7 +41,7 @@ namespace Assets.Scripts
 
         private void ResetColor()
         {
-            renderer.material.color = Color.Lerp(renderer.material.color, _baseColor, Time.deltaTime*FadeTime);
+            renderer.material.color = Color.Lerp(renderer.material.color, _baseColor, Time.deltaTime*FadeInSpeed);
             if (renderer.material.color == _baseColor)
             {
                 ResetColorToBase = false;
@@ -49,7 +50,7 @@ namespace Assets.Scripts
 
         private void ColorAnimator()
         {
-            renderer.material.color = Color.Lerp(renderer.material.color, EmphasizeColor, Time.deltaTime*FadeTime);
+            renderer.material.color = Color.Lerp(renderer.material.color, EmphasizeColor, Time.deltaTime*FadeOutSpeed);
 
 
             if (renderer.material.color == EmphasizeColor)
@@ -66,7 +67,7 @@ namespace Assets.Scripts
             renderer.material.color = _baseColor;
         }
 
-        public override void Colorize()
+        public void Colorize()
         {
             Debug.Log("There");
             ChangeColorToEmphasize = true;
