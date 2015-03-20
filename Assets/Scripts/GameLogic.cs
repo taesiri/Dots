@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Scripts
@@ -46,8 +45,7 @@ namespace Assets.Scripts
                 }
             }
 
-            PQ = new PatternQueue(10);
-            PQ.EmphasizeColor = Color.green;
+            PQ = new PatternQueue(10) {EmphasizeColor = Color.green};
 
             PQ.Enqueue(Dots[1, 1]);
             PQ.Enqueue(Dots[2, 2]);
@@ -55,8 +53,8 @@ namespace Assets.Scripts
             PQ.Enqueue(Dots[4, 4]);
             PQ.Enqueue(Dots[5, 5]);
             PQ.Enqueue(Dots[6, 6]);
-            PQ.Enqueue(Dots[1, 6]);
-            PQ.Enqueue(Dots[2, 6]);
+            PQ.Enqueue(Dots[6, 5]);
+            PQ.Enqueue(Dots[6, 4]);
 
 
             ShowHint();
@@ -81,38 +79,6 @@ namespace Assets.Scripts
             }
         }
 
-        public class PatternQueue
-        {
-            private readonly Queue<SquareScript> _queue;
-            public Color EmphasizeColor;
-
-            public PatternQueue(int size)
-            {
-                _queue = new Queue<SquareScript>(size);
-            }
-
-            public PatternQueue()
-            {
-                _queue = new Queue<SquareScript>();
-            }
-
-            public int Count
-            {
-                get { return _queue.Count; }
-            }
-
-            public void Enqueue(SquareScript item)
-            {
-                _queue.Enqueue(item);
-                item.InPattern = true;
-                item.PatternIndex = _queue.Count;
-                item.EmphasizeColor = EmphasizeColor;
-            }
-
-            public SquareScript Dequeue()
-            {
-                return _queue.Dequeue();
-            }
-        }
+       
     }
 }
