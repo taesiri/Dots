@@ -6,7 +6,6 @@ namespace Assets.Scripts
     public class PatternQueue
     {
         private readonly Queue<SquareScript> _queue;
-        public Color EmphasizeColor;
 
         public PatternQueue(int size)
         {
@@ -23,12 +22,14 @@ namespace Assets.Scripts
             get { return _queue.Count; }
         }
 
+        public Color TargetColor { get; set; }
+
         public void Enqueue(SquareScript item)
         {
             _queue.Enqueue(item);
             item.InPattern = true;
             item.PatternIndex = _queue.Count;
-            item.EmphasizeColor = EmphasizeColor;
+            item.TargetColor = TargetColor;
         }
 
         public SquareScript Dequeue()

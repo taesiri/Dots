@@ -4,43 +4,40 @@ namespace Assets.Scripts
 {
     public class InputHandler : MonoBehaviour
     {
-        public int Counter = 1;
         public void Update()
         {
-            if (Input.touchCount == 0)
+            if (GameLogic.Instance.IsReady)
             {
-                Counter = 1;
-            }
-            if (Input.touchCount > 0)
-            {
-                
-                var worldRay = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
 
-                RaycastHit rcHit;
-
-                if (Physics.Raycast(worldRay, out rcHit))
+                if (Input.touchCount > 0)
                 {
-                    if (rcHit.collider.gameObject)
-                    {
-                        var squareScript = rcHit.collider.gameObject.GetComponent<SquareScript>();
-                        squareScript.Colorize();
+                    var worldRay = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
 
+                    RaycastHit rcHit;
+
+                    if (Physics.Raycast(worldRay, out rcHit))
+                    {
+                        if (rcHit.collider.gameObject)
+                        {
+                            var squareScript = rcHit.collider.gameObject.GetComponent<SquareScript>();
+                            squareScript.GotHit();
+                        }
                     }
                 }
-            }
 
-            if (Input.GetMouseButtonDown(0))
-            {
-                var worldRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-                RaycastHit rcHit;
-
-                if (Physics.Raycast(worldRay, out rcHit))
+                if (Input.GetMouseButtonDown(0))
                 {
-                    if (rcHit.collider.gameObject)
+                    var worldRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+                    RaycastHit rcHit;
+
+                    if (Physics.Raycast(worldRay, out rcHit))
                     {
-                        var squareScript = rcHit.collider.gameObject.GetComponent<SquareScript>();
-                        squareScript.Colorize();
+                        if (rcHit.collider.gameObject)
+                        {
+                            var squareScript = rcHit.collider.gameObject.GetComponent<SquareScript>();
+                            squareScript.GotHit();
+                        }
                     }
                 }
             }

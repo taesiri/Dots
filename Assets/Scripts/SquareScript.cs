@@ -7,20 +7,19 @@ namespace Assets.Scripts
     public class SquareScript : MonoBehaviour
     {
         private static readonly Random RandomGenerator = new Random(DateTime.Now.Millisecond);
+        public static int GlobalCounter;
+        private bool _alreadyHit;
         private Color _baseColor;
         public bool ChangeColorToEmphasize;
-        public Color EmphasizeColor = Color.red;
         public AnimationCurve FadeCurve;
         public int FadeInSpeed = 4;
         public int FadeOutSpeed = 4;
         public Vector2 Index;
         public bool InPattern = false;
         public bool ResetColorToBase;
+        public Color SelectionColor = Color.cyan;
+        public Color TargetColor;
         public int PatternIndex { get; set; }
-
-        public void Awake()
-        {
-        }
 
         public void Start()
         {
@@ -33,30 +32,15 @@ namespace Assets.Scripts
             {
                 ColorAnimator();
             }
-            if (ResetColorToBase)
-            {
-                ResetColor();
-            }
-        }
-
-        private void ResetColor()
-        {
-            renderer.material.color = Color.Lerp(renderer.material.color, _baseColor, Time.deltaTime*FadeInSpeed);
-            if (renderer.material.color == _baseColor)
-            {
-                ResetColorToBase = false;
-            }
         }
 
         private void ColorAnimator()
         {
-            renderer.material.color = Color.Lerp(renderer.material.color, EmphasizeColor, Time.deltaTime*FadeOutSpeed);
+            renderer.material.color = Color.Lerp(renderer.material.color, TargetColor, Time.deltaTime*FadeOutSpeed);
 
-
-            if (renderer.material.color == EmphasizeColor)
+            if (renderer.material.color == TargetColor)
             {
                 ChangeColorToEmphasize = false;
-                ResetColorToBase = true;
             }
         }
 
@@ -67,11 +51,32 @@ namespace Assets.Scripts
             renderer.material.color = _baseColor;
         }
 
+        public void GotHit()
+        {
+            if (!_alreadyHit)
+            {
+                if (GlobalCounter + 1 == PatternIndex)
+                {
+                }
+
+
+                _alreadyHit = true;
+                Colorize();
+                GlobalCounter++;
+            }
+        }
+
         public void Colorize()
         {
-            Debug.Log("There");
             ChangeColorToEmphasize = true;
             ResetColorToBase = false;
+        }
+
+        public void Reset()
+        {
+            _alreadyHit = false;
+            ChangeColorToEmphasize = false;
+            ResetColorToBase = true;
         }
     }
 }
