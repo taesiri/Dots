@@ -262,7 +262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DotPrefab: {fileID: 108794, guid: 24ac8e5532561b841b111c87fbfaf07f, type: 2}
   Height: 7
-  HindInterval: .25
+  HintInterval: .25
   OffsetX: -5.30000019
   OffsetZ: -3.5
   Width: 10
