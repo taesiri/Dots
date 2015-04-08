@@ -4,14 +4,9 @@ namespace Assets.Scripts
 {
     public class DotScript : MonoBehaviour
     {
-        public virtual void Start()
-        {
-        }
+        public bool InPattern = false;
 
-        public virtual void Update()
-        {
-        }
-
+        public Vector2 GridIndex;
         public virtual void Colorize()
         {
             renderer.material.color = Color.red;

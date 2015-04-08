@@ -36,7 +36,11 @@ namespace Assets.Scripts.Editor
                         newDot.transform.position = new Vector3(-2.4f + grid.ZigZagDelta + i*grid.GridSize, -4.21f + j*grid.GridSize, 0);
                     }
 
+
                     newDot.transform.parent = grid.transform;
+
+                    var dotScript = newDot.GetComponent<DotScript>();
+                    dotScript.GridIndex = new Vector2(i, j);
                 }
             }
         }
