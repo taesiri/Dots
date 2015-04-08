@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Editor
 {
-    [CustomEditor(typeof (Grid))]
+    [CustomEditor(typeof (GridBuilder))]
     public class GridEditor : UnityEditor.Editor
     {
         public override void OnInspectorGUI()
@@ -22,13 +22,20 @@ namespace Assets.Scripts.Editor
 
         private void CreateGrid()
         {
-            var grid = (Grid) target;
+            var grid = (GridBuilder) target;
+
 
             for (var i = 0; i < grid.Width; i++)
             {
                 for (var j = 0; j < grid.Height; j++)
                 {
-                    var newDot = (GameObject) Instantiate(grid.CellObject, new Vector3(grid.OffsetX + i*grid.Padding, grid.OffsetZ + j*grid.Padding, 0), Quaternion.identity);
+                    var newDot = (GameObject) Instantiate(grid.DotPrefab, new Vector3(-2.4f + i*grid.GridSize, -4.21f + j*grid.GridSize, 0), Quaternion.identity);
+
+                    if (j%2 == 0)
+                    {
+                        newDot.transform.position = new Vector3(-2.4f + grid.ZigZagDelta + i*grid.GridSize, -4.21f + j*grid.GridSize, 0);
+                    }
+
                     newDot.transform.parent = grid.transform;
                 }
             }
@@ -36,7 +43,7 @@ namespace Assets.Scripts.Editor
 
         private void DeleteChildern()
         {
-            var grid = (Grid) target;
+            var grid = (GridBuilder) target;
             var childs = new Transform[grid.transform.childCount];
 
             for (var i = 0; i < grid.transform.childCount; i++)

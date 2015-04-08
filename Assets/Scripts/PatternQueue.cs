@@ -5,16 +5,16 @@ namespace Assets.Scripts
 {
     public class PatternQueue
     {
-        private readonly Queue<SquareScript> _queue;
+        private readonly Queue<DotScript> _queue;
 
         public PatternQueue(int size)
         {
-            _queue = new Queue<SquareScript>(size);
+            _queue = new Queue<DotScript>(size);
         }
 
         public PatternQueue()
         {
-            _queue = new Queue<SquareScript>();
+            _queue = new Queue<DotScript>();
         }
 
         public int Count
@@ -24,15 +24,15 @@ namespace Assets.Scripts
 
         public Color TargetColor { get; set; }
 
-        public void Enqueue(SquareScript item)
+        public void Enqueue(DotScript item)
         {
             _queue.Enqueue(item);
-            item.InPattern = true;
-            item.PatternIndex = _queue.Count;
-            item.TargetColor = TargetColor;
+            //item.InPattern = true;
+            //item.PatternIndex = _queue.Count;
+            //item.TargetColor = TargetColor;
         }
 
-        public SquareScript Dequeue()
+        public DotScript Dequeue()
         {
             return _queue.Dequeue();
         }

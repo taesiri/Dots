@@ -6,38 +6,34 @@ namespace Assets.Scripts
     {
         public void Update()
         {
-            if (GameLogic.Instance.IsReady)
+            if (Input.touchCount > 0)
             {
+                var worldRay = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
 
-                if (Input.touchCount > 0)
+                RaycastHit rcHit;
+
+                if (Physics.Raycast(worldRay, out rcHit))
                 {
-                    var worldRay = Camera.main.ScreenPointToRay(Input.GetTouch(0).position);
-
-                    RaycastHit rcHit;
-
-                    if (Physics.Raycast(worldRay, out rcHit))
+                    if (rcHit.collider.gameObject)
                     {
-                        if (rcHit.collider.gameObject)
-                        {
-                            var squareScript = rcHit.collider.gameObject.GetComponent<SquareScript>();
-                            squareScript.GotHit();
-                        }
+                        var dotScript = rcHit.collider.gameObject.GetComponent<DotScript>();
+                        dotScript.Colorize();
                     }
                 }
+            }
 
-                if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0))
+            {
+                var worldRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+                RaycastHit rcHit;
+
+                if (Physics.Raycast(worldRay, out rcHit))
                 {
-                    var worldRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-                    RaycastHit rcHit;
-
-                    if (Physics.Raycast(worldRay, out rcHit))
+                    if (rcHit.collider.gameObject)
                     {
-                        if (rcHit.collider.gameObject)
-                        {
-                            var squareScript = rcHit.collider.gameObject.GetComponent<SquareScript>();
-                            squareScript.GotHit();
-                        }
+                        var dotScript = rcHit.collider.gameObject.GetComponent<DotScript>();
+                        dotScript.Colorize();
                     }
                 }
             }

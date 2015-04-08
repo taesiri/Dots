@@ -14,7 +14,6 @@ namespace Assets.Scripts
 
         public virtual void Colorize()
         {
-            Debug.Log("HERE");
             renderer.material.color = Color.red;
         }
     }

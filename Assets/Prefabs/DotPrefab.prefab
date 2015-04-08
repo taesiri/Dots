@@ -26,8 +26,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 108794}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: .100000001}
+  m_LocalPosition: {x: -1.42999995, y: -3.55999994, z: 0}
+  m_LocalScale: {x: .5, y: .5, z: .100000001}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -69,22 +69,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bf93139c069b1346853c56ea576e87e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FadeCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: .00472972961
-      value: 1.00863922
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 2.27990341
-      value: .000379443169
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  Index: {x: 0, y: 0}
 --- !u!135 &13508794
 SphereCollider:
   m_ObjectHideFlags: 1
