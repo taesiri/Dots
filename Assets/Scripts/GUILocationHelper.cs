@@ -17,8 +17,8 @@ namespace Assets.Scripts
         public Vector2 GuiOffset;
         public Vector2 Offset;
         public Vector2 Offset2;
-        public float OriginalHeigth = 1024f;
-        public float OriginalWidth = 600f;
+        public float OriginalHeigth = 1280f;
+        public float OriginalWidth = 800f;
         public Point PointLocation = Point.TopLeft;
         public Point PointLocation2 = Point.TopRight;
 
