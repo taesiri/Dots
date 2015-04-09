@@ -15,10 +15,13 @@ namespace Assets.Scripts
         private int _numberOfDots;
         private DotScript[] _patternDots;
         private int _remainingDots = -1;
+        public Color BaseColor = new Color(0, 0.67058f, 1, 1);
         public AnimationCurve CameraCurve;
+        public float FlashTime = 0.75f;
         public GUISkin GameStatSkin;
         public GameStatus GameStatus;
         public int Height;
+        public Color HighlightedColor = new Color(0.53f, 0, 1, 1);
         public int Level;
         public GUISkin MasterSkin;
         public Texture2D QuitTexture2D;
@@ -113,7 +116,7 @@ namespace Assets.Scripts
                         if (rcHit.collider.gameObject)
                         {
                             var dotScript = rcHit.collider.gameObject.GetComponent<DotScript>();
-                            dotScript.Colorize();
+                            dotScript.ChangeColor();
                         }
                     }
                 }
@@ -136,17 +139,31 @@ namespace Assets.Scripts
                             {
                                 if (!dotScript.InPattern)
                                 {
-                                    GameStatus = GameStatus.GameOver;
+                                    DoGameOver();
+                                    dotScript.renderer.material.color = Color.red;
                                 }
                                 else
                                 {
                                     dotScript.Detected = true;
-                                    Debug.Log(dotScript.GridIndex.ToString());
+
                                     ScoreUp();
                                 }
                             }
                         }
                     }
+                }
+            }
+        }
+
+        public void DoGameOver()
+        {
+            GameStatus = GameStatus.GameOver;
+
+            for (var i = 0; i < _patternDots.Length; i++)
+            {
+                if (!_patternDots[i].Detected)
+                {
+                    _patternDots[i].ExposeCell();
                 }
             }
         }
@@ -202,7 +219,7 @@ namespace Assets.Scripts
 
             if (GameStatus != GameStatus.StartScreen)
             {
-                if (GUI.Button(new Rect(15, 15, 32, 32), QuitTexture2D, GUIStyle.none))
+                if (GUI.Button(new Rect(15, 15, 48, 48), QuitTexture2D, GUIStyle.none))
                 {
                     Application.Quit();
                 }
@@ -234,11 +251,9 @@ namespace Assets.Scripts
                     if (GUI.Button(new Rect(LocationHelper.Offset.x - 240, 220, 250, 50), "PLAY AGAIN", MasterSkin.button))
                     {
                         Application.LoadLevel(0);
-
                     }
                     if (GUI.Button(new Rect(LocationHelper.Offset.x + 20, 220, 250, 50), "LEADERBOARD", MasterSkin.button))
                     {
-                        
                     }
 
 

@@ -119,7 +119,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 5, y: 9}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 378110722}
 --- !u!23 &17410174
 Renderer:
@@ -205,7 +204,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 3, y: 5}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 679506447}
 --- !u!23 &25466471
 Renderer:
@@ -571,7 +569,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 4, y: 0}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 545654222}
 --- !u!23 &153655382
 Renderer:
@@ -657,7 +654,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 3, y: 4}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 321167619}
 --- !u!23 &165043279
 Renderer:
@@ -799,7 +795,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 2, y: 1}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 1274910479}
 --- !u!23 &190185937
 Renderer:
@@ -885,7 +880,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 0, y: 3}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 591622979}
 --- !u!23 &202566128
 Renderer:
@@ -971,7 +965,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 0, y: 7}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 1966511561}
 --- !u!23 &216011513
 Renderer:
@@ -1057,7 +1050,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 5, y: 3}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 55109857}
 --- !u!23 &256098733
 Renderer:
@@ -1311,7 +1303,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 7, y: 9}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 328167279}
 --- !u!23 &313060770
 Renderer:
@@ -1397,7 +1388,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 8, y: 9}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 723111346}
 --- !u!23 &317044451
 Renderer:
@@ -1483,7 +1473,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 4, y: 5}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 444166063}
 --- !u!23 &317749449
 Renderer:
@@ -1625,7 +1614,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 5, y: 0}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 597499277}
 --- !u!23 &324996967
 Renderer:
@@ -1823,7 +1811,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 8, y: 8}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 827575701}
 --- !u!23 &334947831
 Renderer:
@@ -1909,7 +1896,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 2, y: 9}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 463809254}
 --- !u!23 &338974007
 Renderer:
@@ -1995,7 +1981,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 1, y: 6}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 766989738}
 --- !u!23 &369811041
 Renderer:
@@ -2193,7 +2178,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 8, y: 6}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 312343987}
 --- !u!23 &393632332
 Renderer:
@@ -2279,7 +2263,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 7, y: 0}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 1675794257}
 --- !u!23 &394706521
 Renderer:
@@ -2365,7 +2348,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 6, y: 4}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 1070611549}
 --- !u!23 &405767579
 Renderer:
@@ -2451,7 +2433,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 8, y: 2}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 1356512002}
 --- !u!23 &411675223
 Renderer:
@@ -2593,7 +2574,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 3, y: 8}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 783371343}
 --- !u!23 &433395832
 Renderer:
@@ -2679,7 +2659,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 6, y: 8}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 1094197252}
 --- !u!23 &437008157
 Renderer:
@@ -2877,7 +2856,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 1, y: 7}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 980907185}
 --- !u!23 &472188038
 Renderer:
@@ -3019,7 +2997,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 7, y: 4}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 714229787}
 --- !u!23 &491431031
 Renderer:
@@ -3105,7 +3082,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 7, y: 8}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 98804147}
 --- !u!23 &493345115
 Renderer:
@@ -3191,7 +3167,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 5, y: 6}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 2035446439}
 --- !u!23 &497787643
 Renderer:
@@ -3277,7 +3252,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 5, y: 5}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 586987574}
 --- !u!23 &504752221
 Renderer:
@@ -3363,7 +3337,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 8, y: 1}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 969096172}
 --- !u!23 &505245134
 Renderer:
@@ -3505,7 +3478,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 7, y: 2}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 1725553022}
 --- !u!23 &536477228
 Renderer:
@@ -3703,7 +3675,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 8, y: 4}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 1167991080}
 --- !u!23 &553624164
 Renderer:
@@ -4013,7 +3984,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 2, y: 3}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 1441719521}
 --- !u!23 &606604239
 Renderer:
@@ -4262,13 +4232,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cef5e53739960944b4c5c52a358c7af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HighlightedColor: {r: .392444462, g: 0, b: .801470578, a: 1}
+  BaseColor: {r: 0, g: .670580029, b: 1, a: 1}
   CameraCurve:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: .101466902
-      inSlope: 2
-      outSlope: 2
+      value: .200666159
+      inSlope: .883841813
+      outSlope: .883841813
       tangentMode: 0
     - time: .708590329
       value: 1.00330889
@@ -4391,7 +4363,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 6, y: 2}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 1556892962}
 --- !u!23 &649632414
 Renderer:
@@ -4589,7 +4560,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 5, y: 1}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 1051218090}
 --- !u!23 &692046831
 Renderer:
@@ -4843,7 +4813,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 5, y: 7}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 613583160}
 --- !u!23 &717406072
 Renderer:
@@ -5153,7 +5122,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 3, y: 3}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 781277188}
 --- !u!23 &741119385
 Renderer:
@@ -5295,7 +5263,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 1, y: 4}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 1195212026}
 --- !u!23 &751683590
 Renderer:
@@ -5381,7 +5348,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 8, y: 5}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 422766869}
 --- !u!23 &763347868
 Renderer:
@@ -5691,7 +5657,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 4, y: 1}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 926047936}
 --- !u!23 &788740883
 Renderer:
@@ -5777,7 +5742,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 0, y: 4}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 1617037214}
 --- !u!23 &797005052
 Renderer:
@@ -5863,7 +5827,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 5, y: 8}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 917319675}
 --- !u!23 &804760973
 Renderer:
@@ -6061,7 +6024,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 0, y: 2}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 1604489470}
 --- !u!23 &876683975
 Renderer:
@@ -6147,7 +6109,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 6, y: 9}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 1199170543}
 --- !u!23 &903738938
 Renderer:
@@ -6233,7 +6194,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 7, y: 1}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 510873392}
 --- !u!23 &913163423
 Renderer:
@@ -6375,7 +6335,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 3, y: 7}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 669405428}
 --- !u!23 &922099765
 Renderer:
@@ -6685,7 +6644,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 4, y: 7}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 1330463878}
 --- !u!23 &982699145
 Renderer:
@@ -6771,7 +6729,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 2, y: 7}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 1926851947}
 --- !u!23 &989063047
 Renderer:
@@ -6857,7 +6814,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 3, y: 9}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 75564543}
 --- !u!23 &989339204
 Renderer:
@@ -6943,7 +6899,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 6, y: 6}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 851412773}
 --- !u!23 &990644714
 Renderer:
@@ -7085,7 +7040,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 1, y: 1}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 721471885}
 --- !u!23 &1001760940
 Renderer:
@@ -7171,7 +7125,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 1, y: 2}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 996529316}
 --- !u!23 &1005629694
 Renderer:
@@ -7257,7 +7210,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 7, y: 3}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 1087153148}
 --- !u!23 &1009755278
 Renderer:
@@ -7343,7 +7295,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 2, y: 8}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 962935926}
 --- !u!23 &1010299864
 Renderer:
@@ -7485,7 +7436,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 3, y: 0}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 1580676888}
 --- !u!23 &1068296318
 Renderer:
@@ -7571,7 +7521,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 4, y: 8}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 1782396087}
 --- !u!23 &1069770495
 Renderer:
@@ -7713,7 +7662,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 2, y: 5}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 1981930314}
 --- !u!23 &1073439035
 Renderer:
@@ -7799,7 +7747,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 7, y: 6}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 1591868798}
 --- !u!23 &1077055683
 Renderer:
@@ -8165,7 +8112,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 2, y: 2}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 1399668336}
 --- !u!23 &1127982274
 Renderer:
@@ -8419,7 +8365,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 2, y: 6}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 2055830035}
 --- !u!23 &1236378288
 Renderer:
@@ -8505,7 +8450,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 0, y: 0}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 1926155678}
 --- !u!23 &1267910329
 Renderer:
@@ -8927,7 +8871,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 0, y: 1}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 1123965444}
 --- !u!23 &1388568090
 Renderer:
@@ -9237,7 +9180,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 1, y: 0}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 276321804}
 --- !u!23 &1457717326
 Renderer:
@@ -9323,7 +9265,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 1, y: 5}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 1404734960}
 --- !u!23 &1484620490
 Renderer:
@@ -9409,7 +9350,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 1, y: 3}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 1992114509}
 --- !u!23 &1543642965
 Renderer:
@@ -9495,7 +9435,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 6, y: 3}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 1406620534}
 --- !u!23 &1553695130
 Renderer:
@@ -9637,7 +9576,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 0, y: 5}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 1659955695}
 --- !u!23 &1559892169
 Renderer:
@@ -10116,7 +10054,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 1, y: 8}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 474139946}
 --- !u!23 &1612252809
 Renderer:
@@ -10202,7 +10139,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 2, y: 0}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 2104948281}
 --- !u!23 &1615362469
 Renderer:
@@ -10344,7 +10280,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 6, y: 0}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 122592520}
 --- !u!23 &1645171588
 Renderer:
@@ -10430,7 +10365,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 6, y: 5}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 536491585}
 --- !u!23 &1654396510
 Renderer:
@@ -10628,7 +10562,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 6, y: 7}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 1826790774}
 --- !u!23 &1711180185
 Renderer:
@@ -10714,7 +10647,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 4, y: 9}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 2046403997}
 --- !u!23 &1718715209
 Renderer:
@@ -10800,7 +10732,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 4, y: 3}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 1294572883}
 --- !u!23 &1719066441
 Renderer:
@@ -10942,7 +10873,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 3, y: 2}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 748780531}
 --- !u!23 &1741181903
 Renderer:
@@ -11028,7 +10958,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 7, y: 5}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 306136730}
 --- !u!23 &1757179477
 Renderer:
@@ -11114,7 +11043,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 4, y: 4}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 710221042}
 --- !u!23 &1777989264
 Renderer:
@@ -11256,7 +11184,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 8, y: 0}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 724031014}
 --- !u!23 &1785198589
 Renderer:
@@ -11342,7 +11269,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 8, y: 7}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 783891004}
 --- !u!23 &1819984075
 Renderer:
@@ -11484,7 +11410,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 2, y: 4}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 646197994}
 --- !u!23 &1853512448
 Renderer:
@@ -11570,7 +11495,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 5, y: 2}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 629146519}
 --- !u!23 &1886955863
 Renderer:
@@ -11656,7 +11580,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 8, y: 3}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 575070563}
 --- !u!23 &1898409515
 Renderer:
@@ -11742,7 +11665,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 4, y: 2}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 704365171}
 --- !u!23 &1900896273
 Renderer:
@@ -11828,7 +11750,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 0, y: 8}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 1332103246}
 --- !u!23 &1904064009
 Renderer:
@@ -12138,7 +12059,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 3, y: 6}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 378622625}
 --- !u!23 &1967662205
 Renderer:
@@ -12280,7 +12200,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 7, y: 7}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 99882622}
 --- !u!23 &1983350268
 Renderer:
@@ -12422,7 +12341,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 0, y: 9}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 1111257721}
 --- !u!23 &1998248819
 Renderer:
@@ -12508,7 +12426,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 0, y: 6}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 1957590228}
 --- !u!23 &2011614929
 Renderer:
@@ -12594,7 +12511,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 6, y: 1}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 717611460}
 --- !u!23 &2016530073
 Renderer:
@@ -12680,7 +12596,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 5, y: 4}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 181176567}
 --- !u!23 &2025497958
 Renderer:
@@ -12766,7 +12681,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 1, y: 9}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 1319288523}
 --- !u!23 &2032138477
 Renderer:
@@ -13020,7 +12934,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 4, y: 6}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 329264674}
 --- !u!23 &2064408835
 Renderer:
@@ -13106,7 +13019,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashTime: .5
   GridIndex: {x: 3, y: 1}
-  HighlightedColor: {r: 1, g: 0, b: 0, a: 1}
   SecondLayer: {fileID: 1083044985}
 --- !u!23 &2101412011
 Renderer:

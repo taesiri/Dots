@@ -5,12 +5,9 @@ namespace Assets.Scripts
 {
     public class DotScript : MonoBehaviour
     {
-        private Color _baseColor;
         private bool _detected;
         private bool _inPattern;
-        public float FlashTime = 0.5f;
         public Vector2 GridIndex;
-        public Color HighlightedColor = Color.red;
         public Transform SecondLayer;
 
         public bool InPattern
@@ -19,7 +16,7 @@ namespace Assets.Scripts
             set
             {
                 _inPattern = value;
-                Colorize();
+                ChangeColor();
             }
         }
 
@@ -33,14 +30,17 @@ namespace Assets.Scripts
             }
         }
 
-        public void Awake()
+        public void ExposeCell()
         {
-            _baseColor = renderer.material.color;
+            if (InPattern)
+            {
+                renderer.material.color = GameLogic.Instance.HighlightedColor;
+            }
         }
 
-        public virtual void Colorize()
+        public void ChangeColor()
         {
-            StartCoroutine(ChangeColor(FlashTime));
+            StartCoroutine(ChangeColor(GameLogic.Instance.FlashTime));
         }
 
         public void Update()
@@ -53,18 +53,18 @@ namespace Assets.Scripts
 
         private IEnumerator ChangeColor(float waitTime)
         {
-            renderer.material.color = HighlightedColor;
+            renderer.material.color = GameLogic.Instance.HighlightedColor;
 
             yield return new WaitForSeconds(waitTime);
 
-            renderer.material.color = _baseColor;
+            renderer.material.color = GameLogic.Instance.BaseColor;
         }
 
         public void Reset()
         {
             InPattern = false;
             Detected = false;
-            renderer.material.color = _baseColor;
+            renderer.material.color = GameLogic.Instance.BaseColor;
             SecondLayer.localScale = new Vector3(0, 0, 0.1f);
         }
     }
