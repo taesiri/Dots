@@ -74,25 +74,25 @@ MonoBehaviour:
   m_button:
     m_Name: button
     m_Normal:
-      m_Background: {fileID: 11006, guid: 0000000000000000e000000000000000, type: 0}
-      m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
+      m_Background: {fileID: 2800000, guid: 9f36984b4fe4b7d48a3547241ee9d71a, type: 3}
+      m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_Hover:
-      m_Background: {fileID: 11003, guid: 0000000000000000e000000000000000, type: 0}
+      m_Background: {fileID: 2800000, guid: 1c58f228c17c0e640bded101b5c9d462, type: 3}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_Active:
-      m_Background: {fileID: 11002, guid: 0000000000000000e000000000000000, type: 0}
+      m_Background: {fileID: 2800000, guid: 9f36984b4fe4b7d48a3547241ee9d71a, type: 3}
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_Focused:
-      m_Background: {fileID: 0}
+      m_Background: {fileID: 2800000, guid: 9f36984b4fe4b7d48a3547241ee9d71a, type: 3}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_OnNormal:
-      m_Background: {fileID: 11005, guid: 0000000000000000e000000000000000, type: 0}
+      m_Background: {fileID: 2800000, guid: 9f36984b4fe4b7d48a3547241ee9d71a, type: 3}
       m_TextColor: {r: .90196079, g: .90196079, b: .90196079, a: 1}
     m_OnHover:
-      m_Background: {fileID: 11004, guid: 0000000000000000e000000000000000, type: 0}
+      m_Background: {fileID: 2800000, guid: 1c58f228c17c0e640bded101b5c9d462, type: 3}
       m_TextColor: {r: 1, g: 1, b: 1, a: 1}
     m_OnActive:
-      m_Background: {fileID: 11002, guid: 0000000000000000e000000000000000, type: 0}
+      m_Background: {fileID: 2800000, guid: 9f36984b4fe4b7d48a3547241ee9d71a, type: 3}
       m_TextColor: {r: .899999976, g: .899999976, b: .899999976, a: 1}
     m_OnFocused:
       m_Background: {fileID: 0}
@@ -117,9 +117,9 @@ MonoBehaviour:
       m_Right: 0
       m_Top: 0
       m_Bottom: 0
-    m_Font: {fileID: 0}
-    m_FontSize: 0
-    m_FontStyle: 0
+    m_Font: {fileID: 12800000, guid: 2abedb51b06acf945ad11c1d8a720362, type: 3}
+    m_FontSize: 22
+    m_FontStyle: 1
     m_Alignment: 4
     m_WordWrap: 0
     m_RichText: 1

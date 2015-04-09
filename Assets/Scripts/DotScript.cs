@@ -6,7 +6,7 @@ namespace Assets.Scripts
     public class DotScript : MonoBehaviour
     {
         private Color _baseColor;
-        public bool _detected;
+        private bool _detected;
         private bool _inPattern;
         public float FlashTime = 0.5f;
         public Vector2 GridIndex;

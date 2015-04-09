@@ -21,6 +21,7 @@ namespace Assets.Scripts
         public int Height;
         public int Level;
         public GUISkin MasterSkin;
+        public Texture2D QuitTexture2D;
         public int Score;
         public int Width;
 
@@ -75,7 +76,7 @@ namespace Assets.Scripts
 
         public IEnumerator InitialSetup()
         {
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.75f);
             ////////////////////////////// Level Setup
             _remainingDots = 1;
             PickRandomDots(_remainingDots);
@@ -135,7 +136,6 @@ namespace Assets.Scripts
                             {
                                 if (!dotScript.InPattern)
                                 {
-                                    Debug.Log("Lose");
                                     GameStatus = GameStatus.GameOver;
                                 }
                                 else
@@ -200,7 +200,23 @@ namespace Assets.Scripts
             GUI.matrix = _guiMatrix;
 
 
-            GUI.Label(new Rect(LocationHelper.Offset.x - 125, 45, 250, 125), string.Format("DOTs"), MasterSkin.label);
+            if (GameStatus != GameStatus.StartScreen)
+            {
+                if (GUI.Button(new Rect(15, 15, 32, 32), QuitTexture2D, GUIStyle.none))
+                {
+                    Application.Quit();
+                }
+            }
+
+
+            if (GameStatus != GameStatus.GameOver)
+            {
+                GUI.Label(new Rect(LocationHelper.Offset.x - 125, 45, 250, 125), string.Format("DOTs"), MasterSkin.label);
+            }
+            else
+            {
+                GUI.Label(new Rect(LocationHelper.Offset.x - 150, 55, 300, 160), string.Format("GAME OVER"), MasterSkin.label);
+            }
 
 
             switch (GameStatus)
@@ -215,10 +231,19 @@ namespace Assets.Scripts
                     break;
 
                 case GameStatus.GameOver:
-                    if (GUI.Button(new Rect(LocationHelper.Offset.x - 50, 200, 100, 50), "Play Again!", MasterSkin.button))
+                    if (GUI.Button(new Rect(LocationHelper.Offset.x - 240, 220, 250, 50), "PLAY AGAIN", MasterSkin.button))
                     {
                         Application.LoadLevel(0);
+
                     }
+                    if (GUI.Button(new Rect(LocationHelper.Offset.x + 20, 220, 250, 50), "LEADERBOARD", MasterSkin.button))
+                    {
+                        
+                    }
+
+
+                    GUI.Label(new Rect(LocationHelper.Offset.x - 125, 280, 250, 75), string.Format("Score: {0}", Score), GameStatSkin.label);
+
                     break;
             }
 
