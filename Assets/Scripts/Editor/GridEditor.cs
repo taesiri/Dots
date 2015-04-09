@@ -23,7 +23,7 @@ namespace Assets.Scripts.Editor
         private void CreateGrid()
         {
             var grid = (GridBuilder) target;
-
+            grid.Dots = new DotScript[grid.Width*grid.Height];
 
             for (var i = 0; i < grid.Width; i++)
             {
@@ -41,6 +41,9 @@ namespace Assets.Scripts.Editor
 
                     var dotScript = newDot.GetComponent<DotScript>();
                     dotScript.GridIndex = new Vector2(i, j);
+
+
+                    grid.Dots[j*grid.Width + i] = dotScript;
                 }
             }
         }
