@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using Random = System.Random;
 
@@ -8,13 +9,18 @@ namespace Assets.Scripts
     {
         public static Random RandomGenerator = new Random(DateTime.Now.Millisecond);
         public static GameLogic Instance;
+        public static GUILocationHelper LocationHelper = new GUILocationHelper();
+        private Matrix4x4 _guiMatrix;
+        private float _levelStartTime;
         private int _numberOfDots;
+        private DotScript[] _patternDots;
         private int _remainingDots = -1;
+        public AnimationCurve CameraCurve;
+        public GUISkin GameStatSkin;
         public GameStatus GameStatus;
         public int Height;
-        public int Level = 1;
+        public int Level;
         public GUISkin MasterSkin;
-        private DotScript[] PatternDots;
         public int Score;
         public int Width;
 
@@ -25,22 +31,31 @@ namespace Assets.Scripts
 
         public void Start()
         {
+            _levelStartTime = Time.time;
+
+            ////////////////////////////// GRID Setup
             Height = GridBuilder.Instance.Height;
             Width = GridBuilder.Instance.Width;
-
             _numberOfDots = Height*Width;
-
-            _remainingDots = (int) Math.Pow(2, Level);
-            PickRandomDots(_remainingDots);
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-            //Edit this!
-            GameStatus = GameStatus.Playing;
+            ////////////////////////////// GUI Setup
+            LocationHelper.PointLocation = GUILocationHelper.Point.Center;
+            LocationHelper.UpdateLocation();
+            var ratio = LocationHelper.GuiOffset;
+            _guiMatrix = Matrix4x4.identity;
+            _guiMatrix.SetTRS(new Vector3(1, 1, 1), Quaternion.identity, new Vector3(ratio.x, ratio.y, 1));
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+            GameStatus = GameStatus.StartScreen;
+            Camera.main.orthographicSize = 0.1f;
         }
 
         public void PickRandomDots(int count)
         {
-            PatternDots = new DotScript[count];
+            _patternDots = new DotScript[count];
 
             var counter = 0;
 
@@ -52,15 +67,39 @@ namespace Assets.Scripts
                 {
                     GridBuilder.Instance.Dots[rndDot].InPattern = true;
 
-                    PatternDots[counter] = GridBuilder.Instance.Dots[rndDot];
+                    _patternDots[counter] = GridBuilder.Instance.Dots[rndDot];
                     counter++;
                 }
             }
         }
 
+        public IEnumerator InitialSetup()
+        {
+            yield return new WaitForSeconds(1f);
+            ////////////////////////////// Level Setup
+            _remainingDots = 1;
+            PickRandomDots(_remainingDots);
+
+            GameStatus = GameStatus.Playing;
+            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        }
+
         public void Update()
         {
-            if (GameStatus == GameStatus.Playing)
+            if (GameStatus == GameStatus.StartScreen)
+            {
+                Camera.main.orthographicSize = CameraCurve.Evaluate(Time.time - _levelStartTime)*5;
+
+                if (Math.Abs(5 - Camera.main.orthographicSize) < .8f)
+                {
+                    Camera.main.orthographicSize = 5;
+                    GameStatus = GameStatus.Initialize;
+                    StartCoroutine(InitialSetup());
+                }
+            }
+
+
+            else if (GameStatus == GameStatus.Playing)
             {
                 if (Input.touchCount > 0)
                 {
@@ -102,7 +141,7 @@ namespace Assets.Scripts
                                 else
                                 {
                                     dotScript.Detected = true;
-                                    Debug.Log("Score Up!");
+                                    Debug.Log(dotScript.GridIndex.ToString());
                                     ScoreUp();
                                 }
                             }
@@ -114,7 +153,13 @@ namespace Assets.Scripts
 
         private void ScoreUp()
         {
-            Score += Level;
+            if (Level == 0)
+                Score++;
+            else
+            {
+                Score += Level;
+            }
+
             _remainingDots--;
 
             if (_remainingDots == 0)
@@ -125,39 +170,59 @@ namespace Assets.Scripts
 
         private void LevelUp()
         {
+            StartCoroutine(LevelingUp(1f));
+        }
+
+        private IEnumerator LevelingUp(float waitTime)
+        {
+            GameStatus = GameStatus.ChangeLevel;
+            yield return new WaitForSeconds(waitTime);
             ResetGrid();
 
             Level++;
             _remainingDots = (int) Math.Pow(2, Level);
             PickRandomDots(_remainingDots);
-        }
 
+
+            GameStatus = GameStatus.Playing;
+        }
 
         private void ResetGrid()
         {
-            for (int i = 0; i < PatternDots.Length; i++)
+            for (var i = 0; i < _patternDots.Length; i++)
             {
-                PatternDots[i].Reset();
-
+                _patternDots[i].Reset();
             }
         }
 
         public void OnGUI()
         {
+            GUI.matrix = _guiMatrix;
+
+
+            GUI.Label(new Rect(LocationHelper.Offset.x - 125, 45, 250, 125), string.Format("DOTs"), MasterSkin.label);
+
+
             switch (GameStatus)
             {
                 case GameStatus.Playing:
-                    GUI.Label(new Rect(10, 10, 100, 50), Score.ToString(), MasterSkin.label);
-                    GUI.Label(new Rect(10, 60, 100, 50), Level.ToString(), MasterSkin.label);
+                    GUI.Label(new Rect(25, 200, 250, 75), string.Format("Level: {0}", Level), GameStatSkin.label);
+                    GUI.Label(new Rect(LocationHelper.Offset2.x - 300, 200, 250, 75), string.Format("Score: {0}", Score), GameStatSkin.label);
+                    break;
+
+                case GameStatus.ChangeLevel:
+                    GUI.Label(new Rect(LocationHelper.Offset.x - 125, 200, 250, 75), string.Format("Level Up!"), GameStatSkin.label);
                     break;
 
                 case GameStatus.GameOver:
-                    if (GUI.Button(new Rect(10, 10, 100, 50), "Play Again!", MasterSkin.button))
+                    if (GUI.Button(new Rect(LocationHelper.Offset.x - 50, 200, 100, 50), "Play Again!", MasterSkin.button))
                     {
                         Application.LoadLevel(0);
                     }
                     break;
             }
+
+            GUI.matrix = Matrix4x4.identity;
         }
     }
 }

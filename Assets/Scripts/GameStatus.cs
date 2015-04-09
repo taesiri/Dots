@@ -2,7 +2,10 @@
 {
     public enum GameStatus
     {
+        StartScreen,
+        Initialize,
         Playing,
-        GameOver
+        GameOver,
+        ChangeLevel
     }
 }

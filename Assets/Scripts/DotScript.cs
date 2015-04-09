@@ -6,11 +6,12 @@ namespace Assets.Scripts
     public class DotScript : MonoBehaviour
     {
         private Color _baseColor;
-        private bool _detected;
+        public bool _detected;
         private bool _inPattern;
         public float FlashTime = 0.5f;
         public Vector2 GridIndex;
         public Color HighlightedColor = Color.red;
+        public Transform SecondLayer;
 
         public bool InPattern
         {
@@ -44,6 +45,10 @@ namespace Assets.Scripts
 
         public void Update()
         {
+            if (Detected)
+            {
+                SecondLayer.localScale = new Vector3(Mathf.Lerp(SecondLayer.localScale.x, 1, Time.deltaTime*10f), Mathf.Lerp(SecondLayer.localScale.y, 1, Time.deltaTime*10f), 0.1f);
+            }
         }
 
         private IEnumerator ChangeColor(float waitTime)
@@ -60,6 +65,7 @@ namespace Assets.Scripts
             InPattern = false;
             Detected = false;
             renderer.material.color = _baseColor;
+            SecondLayer.localScale = new Vector3(0, 0, 0.1f);
         }
     }
 }
