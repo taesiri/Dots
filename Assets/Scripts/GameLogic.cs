@@ -59,6 +59,11 @@ namespace Assets.Scripts
 
         public void PickRandomDots(int count)
         {
+            if (count > 64)
+            {
+                count = 64;
+            }
+
             _patternDots = new DotScript[count];
 
             var counter = 0;
