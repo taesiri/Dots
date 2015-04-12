@@ -10,21 +10,27 @@ namespace Assets.Scripts
         public static Random RandomGenerator = new Random(DateTime.Now.Millisecond);
         public static GameLogic Instance;
         public static GUILocationHelper LocationHelper = new GUILocationHelper();
+        public static int PlayCount;
         private Matrix4x4 _guiMatrix;
         private float _levelStartTime;
         private int _numberOfDots;
         private DotScript[] _patternDots;
-        private int _remainingDots = -1;
-        public Color BaseColor = new Color(0, 0.67058f, 1, 1);
+        public int _remainingDots = -1;
+        public int adCounter = 5;
+        public Sprite BlueDot;
         public AnimationCurve CameraCurve;
         public float FlashTime = 0.75f;
         public GUISkin GameStatSkin;
+        public GUISkin TextSkin;
         public GameStatus GameStatus;
+        public Sprite GreenDot;
         public int Height;
-        public Color HighlightedColor = new Color(0.53f, 0, 1, 1);
-        public int Level;
+        public int Level = 1;
         public GUISkin MasterSkin;
+        public Sprite OrangeDot;
+        public Sprite PurpleDot;
         public Texture2D QuitTexture2D;
+        public Sprite RedDot;
         public int Score;
         public int Width;
 
@@ -35,6 +41,9 @@ namespace Assets.Scripts
 
         public void Start()
         {
+            PlayCount++;
+
+
             _levelStartTime = Time.time;
 
             ////////////////////////////// GRID Setup
@@ -55,13 +64,15 @@ namespace Assets.Scripts
 
             GameStatus = GameStatus.StartScreen;
             Camera.main.orthographicSize = 0.1f;
+
         }
 
         public void PickRandomDots(int count)
         {
-            if (count > 64)
+            if (count > 40)
             {
-                count = 64;
+                count = 40;
+                _remainingDots = 40;
             }
 
             _patternDots = new DotScript[count];
@@ -75,22 +86,69 @@ namespace Assets.Scripts
                 if (!GridBuilder.Instance.Dots[rndDot].InPattern)
                 {
                     GridBuilder.Instance.Dots[rndDot].InPattern = true;
-
                     _patternDots[counter] = GridBuilder.Instance.Dots[rndDot];
                     counter++;
                 }
             }
+
+
+            StartCoroutine(ShowHint());
+        }
+
+        private IEnumerator ShowHint()
+        {
+            GameStatus = GameStatus.DisplayHint;
+
+            for (var i = 0; i < _patternDots.Length; i++)
+            {
+                _patternDots[i].DisplayHint();
+            }
+
+            yield return new WaitForSeconds(0.75f);
+
+            for (var i = 0; i < _patternDots.Length; i++)
+            {
+                _patternDots[i].ResetColor();
+            }
+
+
+            GameStatus = GameStatus.Playing;
         }
 
         public IEnumerator InitialSetup()
         {
             yield return new WaitForSeconds(0.75f);
             ////////////////////////////// Level Setup
+
+            Level = 1;
             _remainingDots = 1;
             PickRandomDots(_remainingDots);
 
-            GameStatus = GameStatus.Playing;
-            ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            ////////////////////////RequestBanner();
+            ////////////////////////RequestInterstitial();
+        }
+
+        public void RestartGame()
+        {
+            PlayCount++;
+            _levelStartTime = Time.time;
+            Score = 0;
+
+            GameStatus = GameStatus.StartScreen;
+            Camera.main.orthographicSize = 0.1f;
+
+
+            for (var i = 0; i < GridBuilder.Instance.Dots.Length; i++)
+            {
+                GridBuilder.Instance.Dots[i].Reset();
+            }
+
+            adCounter--;
+
+            if (adCounter <= 0)
+            {
+                // Show Advertisement
+            }
         }
 
         public void Update()
@@ -121,7 +179,22 @@ namespace Assets.Scripts
                         if (rcHit.collider.gameObject)
                         {
                             var dotScript = rcHit.collider.gameObject.GetComponent<DotScript>();
-                            dotScript.ChangeColor();
+
+
+                            if (!dotScript.Detected)
+                            {
+                                if (!dotScript.InPattern)
+                                {
+                                    DoGameOver();
+                                    dotScript.GoRed();
+                                }
+                                else
+                                {
+                                    dotScript.Detected = true;
+
+                                    ScoreUp();
+                                }
+                            }
                         }
                     }
                 }
@@ -145,7 +218,7 @@ namespace Assets.Scripts
                                 if (!dotScript.InPattern)
                                 {
                                     DoGameOver();
-                                    dotScript.renderer.material.color = Color.red;
+                                    dotScript.GoRed();
                                 }
                                 else
                                 {
@@ -171,16 +244,17 @@ namespace Assets.Scripts
                     _patternDots[i].ExposeCell();
                 }
             }
+
+            SubmitScoreToServer();
+
+            if (PlayCount%5 == 0)
+            {
+            }
         }
 
         private void ScoreUp()
         {
-            if (Level == 0)
-                Score++;
-            else
-            {
-                Score += Level;
-            }
+            Score += Level;
 
             _remainingDots--;
 
@@ -192,7 +266,7 @@ namespace Assets.Scripts
 
         private void LevelUp()
         {
-            StartCoroutine(LevelingUp(1f));
+            StartCoroutine(LevelingUp(1.1f));
         }
 
         private IEnumerator LevelingUp(float waitTime)
@@ -201,12 +275,13 @@ namespace Assets.Scripts
             yield return new WaitForSeconds(waitTime);
             ResetGrid();
 
+            _remainingDots = 2*Level;
+
             Level++;
-            _remainingDots = (int) Math.Pow(2, Level);
+
+            //CheckAchievement();
+
             PickRandomDots(_remainingDots);
-
-
-            GameStatus = GameStatus.Playing;
         }
 
         private void ResetGrid()
@@ -246,6 +321,7 @@ namespace Assets.Scripts
                 case GameStatus.Playing:
                     GUI.Label(new Rect(25, 200, 250, 75), string.Format("Level: {0}", Level), GameStatSkin.label);
                     GUI.Label(new Rect(LocationHelper.Offset2.x - 300, 200, 250, 75), string.Format("Score: {0}", Score), GameStatSkin.label);
+                    GUI.Label(new Rect(LocationHelper.Offset.x - 300, 290, 600, 75), "Try memorizing the position of Purple Dots", TextSkin.label);
                     break;
 
                 case GameStatus.ChangeLevel:
@@ -255,19 +331,36 @@ namespace Assets.Scripts
                 case GameStatus.GameOver:
                     if (GUI.Button(new Rect(LocationHelper.Offset.x - 240, 220, 250, 50), "PLAY AGAIN", MasterSkin.button))
                     {
-                        Application.LoadLevel(0);
+                        RestartGame();
                     }
                     if (GUI.Button(new Rect(LocationHelper.Offset.x + 20, 220, 250, 50), "LEADERBOARD", MasterSkin.button))
                     {
+                        CheckUser();
                     }
 
 
-                    GUI.Label(new Rect(LocationHelper.Offset.x - 125, 280, 250, 75), string.Format("Score: {0}", Score), GameStatSkin.label);
+                    GUI.Label(new Rect(LocationHelper.Offset.x - 125, 310, 250, 75), string.Format("Score: {0}", Score), GameStatSkin.label);
 
+                    break;
+
+                case GameStatus.DisplayHint:
+                    
                     break;
             }
 
             GUI.matrix = Matrix4x4.identity;
+        }
+
+        private void CheckUser()
+        {
+
+        }
+
+        private void SubmitScoreToServer()
+        {
+            CheckUser();
+
+            //SendAchievement();
         }
     }
 }

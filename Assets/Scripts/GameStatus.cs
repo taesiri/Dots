@@ -4,6 +4,7 @@
     {
         StartScreen,
         Initialize,
+        DisplayHint,
         Playing,
         GameOver,
         ChangeLevel

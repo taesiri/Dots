@@ -1,24 +1,14 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Assets.Scripts
 {
     public class DotScript : MonoBehaviour
     {
         private bool _detected;
-        private bool _inPattern;
+        private SpriteRenderer _sprite;
         public Vector2 GridIndex;
         public Transform SecondLayer;
-
-        public bool InPattern
-        {
-            get { return _inPattern; }
-            set
-            {
-                _inPattern = value;
-                ChangeColor();
-            }
-        }
+        public bool InPattern { get; set; }
 
         public bool Detected
         {
@@ -26,21 +16,31 @@ namespace Assets.Scripts
             set
             {
                 _detected = value;
-                renderer.material.color = Color.green;
+                _sprite.sprite = GameLogic.Instance.GreenDot;
             }
+        }
+
+        public void Awake()
+        {
+            _sprite = GetComponent<SpriteRenderer>();
         }
 
         public void ExposeCell()
         {
             if (InPattern)
             {
-                renderer.material.color = GameLogic.Instance.HighlightedColor;
+                _sprite.sprite = GameLogic.Instance.PurpleDot;
             }
         }
 
-        public void ChangeColor()
+        public void DisplayHint()
         {
-            StartCoroutine(ChangeColor(GameLogic.Instance.FlashTime));
+            _sprite.sprite = GameLogic.Instance.PurpleDot;
+        }
+
+        public void ResetColor()
+        {
+            _sprite.sprite = GameLogic.Instance.BlueDot;
         }
 
         public void Update()
@@ -51,21 +51,17 @@ namespace Assets.Scripts
             }
         }
 
-        private IEnumerator ChangeColor(float waitTime)
-        {
-            renderer.material.color = GameLogic.Instance.HighlightedColor;
-
-            yield return new WaitForSeconds(waitTime);
-
-            renderer.material.color = GameLogic.Instance.BaseColor;
-        }
-
         public void Reset()
         {
             InPattern = false;
             Detected = false;
-            renderer.material.color = GameLogic.Instance.BaseColor;
+            _sprite.sprite = GameLogic.Instance.BlueDot;
             SecondLayer.localScale = new Vector3(0, 0, 0.1f);
+        }
+
+        public void GoRed()
+        {
+            _sprite.sprite = GameLogic.Instance.RedDot;
         }
     }
 }
