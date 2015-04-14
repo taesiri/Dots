@@ -34,6 +34,8 @@ namespace Assets.Scripts
         public int Score;
         public int Width;
 
+        public int highscore;
+
         public void Awake()
         {
             Instance = this;
@@ -43,6 +45,7 @@ namespace Assets.Scripts
         {
             PlayCount++;
 
+            highscore = PlayerPrefs.GetInt("PlayerHighScore");
 
             _levelStartTime = Time.time;
 
@@ -359,6 +362,12 @@ namespace Assets.Scripts
         private void SubmitScoreToServer()
         {
             CheckUser();
+
+            if (Score > highscore)
+            {
+                PlayerPrefs.SetInt("PlayerHighScore", Score);
+                highscore = Score;
+            }
 
             //SendAchievement();
         }
