@@ -19,7 +19,6 @@ namespace Assets.Scripts
         public int adCounter = 5;
         public Sprite BlueDot;
         public AnimationCurve CameraCurve;
-        public float FlashTime = 0.75f;
         public GUISkin GameStatSkin;
         public GUISkin TextSkin;
         public GameStatus GameStatus;
@@ -107,7 +106,22 @@ namespace Assets.Scripts
                 _patternDots[i].DisplayHint();
             }
 
-            yield return new WaitForSeconds(0.75f);
+
+            var waitTime = 1.2f;
+
+            if (Level > 10)
+            {
+                waitTime = 1.1f - Level / 1000f;
+            }
+
+            if (waitTime < 0.6f)
+            {
+                waitTime = 0.6f;
+            }
+
+
+            yield return new WaitForSeconds(waitTime);
+
 
             for (var i = 0; i < _patternDots.Length; i++)
             {
@@ -278,7 +292,7 @@ namespace Assets.Scripts
             yield return new WaitForSeconds(waitTime);
             ResetGrid();
 
-            _remainingDots = 2*Level;
+            _remainingDots = 1+Level;
 
             Level++;
 
